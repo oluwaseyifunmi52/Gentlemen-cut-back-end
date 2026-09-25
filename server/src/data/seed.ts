@@ -1,4 +1,12 @@
-import 'dotenv/config';
+import dns from 'node:dns';
+dns.setServers(['8.8.8.8', '8.8.4.4']);
+
+import dotenv from 'dotenv';
+import path from 'path';
+dotenv.config({ path: path.resolve(process.cwd(), '.env') });
+
+console.log('MONGODB_URI loaded:', !!process.env.MONGODB_URI);
+
 import { connectDatabase } from '../config/database';
 import Service from '../models/Service';
 import Barber from '../models/Barber';
@@ -17,6 +25,7 @@ const seedDatabase = async () => {
         category: 'haircuts',
         price: 7000,
         durationMinutes: 45,
+        imageUrl: '/images/b0937819899bdc179995f891bacdf8ec.jpg',
         active: true,
       },
       {
@@ -26,6 +35,7 @@ const seedDatabase = async () => {
         category: 'haircuts',
         price: 8500,
         durationMinutes: 60,
+        imageUrl: '/images/professional-barber-giving-a-taper-fade-haircut-in-modern-barbershop.webp',
         active: true,
       },
       {
@@ -35,6 +45,7 @@ const seedDatabase = async () => {
         category: 'haircuts',
         price: 8000,
         durationMinutes: 60,
+        imageUrl: '/images/Barbershop_Interior_Design_21_1024x1024.webp',
         active: true,
       },
       {
@@ -44,6 +55,7 @@ const seedDatabase = async () => {
         category: 'haircuts',
         price: 8000,
         durationMinutes: 45,
+        imageUrl: '/images/straight-edge-barber-folding-shaving-razors-surgicalmart.webp',
         active: true,
       },
       {
@@ -53,6 +65,7 @@ const seedDatabase = async () => {
         category: 'beard',
         price: 4500,
         durationMinutes: 30,
+        imageUrl: '/images/straight-edge-barber-folding-shaving-razors-surgicalmart.webp',
         active: true,
       },
       {
@@ -62,6 +75,7 @@ const seedDatabase = async () => {
         category: 'beard',
         price: 6000,
         durationMinutes: 40,
+        imageUrl: '/images/straight-edge-barber-folding-shaving-razors-surgicalmart.webp',
         active: true,
       },
       {
@@ -71,6 +85,7 @@ const seedDatabase = async () => {
         category: 'packages',
         price: 11000,
         durationMinutes: 75,
+        imageUrl: '/images/b0937819899bdc179995f891bacdf8ec.jpg',
         active: true,
       },
       {
@@ -80,6 +95,7 @@ const seedDatabase = async () => {
         category: 'packages',
         price: 14000,
         durationMinutes: 90,
+        imageUrl: '/images/Barbershop_Interior_Design_21_1024x1024.webp',
         active: true,
       },
       {
@@ -89,6 +105,7 @@ const seedDatabase = async () => {
         category: 'kids',
         price: 5000,
         durationMinutes: 40,
+        imageUrl: '/images/b0937819899bdc179995f891bacdf8ec.jpg',
         active: true,
       },
     ]);
@@ -100,21 +117,21 @@ const seedDatabase = async () => {
         name: 'Marcus Adeyemi',
         role: 'Master Barber',
         specialty: 'Skin fades & precision cuts',
-        imageUrl: '/images/marcus.jpg',
+        imageUrl: '/images/barbers/marcus.webp',
         active: true,
       },
       {
         name: 'Daniel Okafor',
         role: 'Senior Barber',
         specialty: 'Classic cuts & beard styling',
-        imageUrl: '/images/daniel.jpg',
+        imageUrl: '/images/barbers/daniel.webp',
         active: true,
       },
       {
         name: 'Tunde Akinwale',
         role: 'Barber',
         specialty: 'Modern fades & textured styles',
-        imageUrl: '/images/tunde.jpg',
+        imageUrl: '/images/barbers/tunde.jpg',
         active: true,
       },
     ]);

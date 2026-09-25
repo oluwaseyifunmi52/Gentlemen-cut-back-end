@@ -101,8 +101,8 @@ const bookingSchema: Schema = new Schema(
   }
 );
 
-// Index for faster overlap queries
-bookingSchema.index({ service: 1, date: 1, startTime: 1 });
-bookingSchema.index({ barber: 1, date: 1, startTime: 1 });
+// Index for faster overlap queries (also serves as unique constraint to prevent race-condition double-booking)
+bookingSchema.index({ service: 1, date: 1, startTime: 1 }, { unique: true });
+bookingSchema.index({ barber: 1, date: 1, startTime: 1 }, { unique: true });
 
 export default model<IBooking>('Booking', bookingSchema);

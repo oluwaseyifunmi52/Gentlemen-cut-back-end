@@ -17,8 +17,10 @@ export const isPastDate = (dateStr: string): boolean => {
   const shopTz = getShopTimezone();
   const targetDate = new Date(`${dateStr}T00:00:00${shopTz.includes('+') || shopTz.includes('-') ? '' : 'Z'}`);
   const now = new Date();
-  // Compare just the date portion in shop timezone
-  return targetDate < now;
+  // Compare both dates at midnight UTC to avoid timezone drift
+  const targetUtc = new Date(Date.UTC(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate()));
+  const nowUtc = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+  return targetUtc < nowUtc;
 };
 
 export const formatTime = (timeStr: string): { hour: number; minute: number } => {

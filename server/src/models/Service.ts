@@ -30,6 +30,10 @@ const serviceSchema: Schema = new Schema(
       type: Number,
       required: [true, 'Service duration is required'],
     },
+    imageUrl: {
+      type: String,
+      trim: true,
+    },
     active: {
       type: Boolean,
       default: true,
@@ -47,6 +51,7 @@ export interface IService extends Document {
   category: 'haircuts' | 'beard' | 'packages' | 'kids';
   price: number;
   durationMinutes: number;
+  imageUrl?: string;
   active: boolean;
   createdAt: Date;
   updatedAt: Date;
