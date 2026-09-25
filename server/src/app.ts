@@ -34,6 +34,14 @@ app.use(rateLimitMiddleware);
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true }));
 
+// Root health endpoint
+app.get('/', (_req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'The Gentleman\'s Cut API is running',
+  });
+});
+
 // Routes
 app.use('/api/health', healthRoutes);
 app.use('/api/services', serviceRoutes);
