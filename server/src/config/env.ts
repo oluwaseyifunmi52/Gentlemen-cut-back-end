@@ -8,7 +8,7 @@ const env = {
   port: process.env.PORT || '5000',
   nodeEnv: process.env.NODE_ENV || 'development',
   clientUrl: process.env.FRONTEND_URL || process.env.CLIENT_URL || 'http://localhost:5173',
-  shopTimezone: process.env.SHOP_TIMEZONE || 'Africa/Lagos',
+  shopTimezone: process.env.SHOP_TIMEZONE || 'Africa/Johannesburg',
   resendApiKey: process.env.RESEND_API_KEY,
   bookingEmailFrom: process.env.BOOKING_EMAIL_FROM,
 };

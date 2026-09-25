@@ -18,10 +18,11 @@ const app = express();
 app.use(helmet());
 
 // CORS - only allow configured origin
-const allowedOrigins = process.env.CLIENT_URL
-  ? [process.env.CLIENT_URL, 'http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175', 'http://localhost:5176']
-  : ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175', 'http://localhost:5176',
-     'https://gentlemen-cut-4vzl.vercel.app'];
+const isProduction = process.env.NODE_ENV === 'production';
+const clientUrl = process.env.CLIENT_URL || 'http://localhost:5174';
+const allowedOrigins = isProduction
+  ? [clientUrl, 'https://gentlemen-cut.vercel.app']
+  : [clientUrl, 'http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175', 'http://localhost:5176'];
 
 app.use(cors({
   origin: allowedOrigins,
