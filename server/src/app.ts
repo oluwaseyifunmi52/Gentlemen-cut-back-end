@@ -20,7 +20,8 @@ app.use(helmet());
 // CORS - only allow configured origin
 const allowedOrigins = process.env.CLIENT_URL
   ? [process.env.CLIENT_URL, 'http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175']
-  : ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'];
+  : ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175',
+     'https://gentlemen-cut-4vzl.vercel.app'];
 
 app.use(cors({
   origin: allowedOrigins,

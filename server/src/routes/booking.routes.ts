@@ -7,8 +7,8 @@ import {
 
 const router = Router();
 
-router.post('/bookings', createBooking);
-router.get('/bookings/:reference', getBookingByReference);
-router.patch('/bookings/:reference/cancel', cancelBooking);
+router.post('/', createBooking);
+router.get('/:reference', getBookingByReference);
+router.patch('/:reference/cancel', cancelBooking);
 
 export default router;

@@ -6,7 +6,7 @@ import {
 
 const router = Router();
 
-router.get('/services', getServices);
-router.get('/services/:slug', getServiceBySlug);
+router.get('/', getServices);
+router.get('/:slug', getServiceBySlug);
 
 export default router;

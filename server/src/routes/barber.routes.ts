@@ -3,7 +3,7 @@ import { getBarbers, getBarberById } from '../controllers/barber.controller';
 
 const router = Router();
 
-router.get('/barbers', getBarbers);
-router.get('/barbers/:id', getBarberById);
+router.get('/', getBarbers);
+router.get('/:id', getBarberById);
 
 export default router;
