@@ -21,7 +21,7 @@ app.use(helmet());
 const isProduction = process.env.NODE_ENV === 'production';
 const clientUrl = process.env.CLIENT_URL || 'http://localhost:5174';
 const allowedOrigins = isProduction
-  ? [clientUrl, 'https://gentlemen-cut.vercel.app']
+  ? [clientUrl]
   : [clientUrl, 'http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175', 'http://localhost:5176'];
 
 app.use(cors({
